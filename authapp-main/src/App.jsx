@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const CLIENT_ID = "22b888df43076ade070a";
+const CLIENT_ID = "";
 function App() {
   const [rerender, setRerender] = useState(false);
   const [userData, setUserData] = useState({});
