@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
-const CLIENT_ID = "22b888df43076ade070a";
-const CLIENT_SECRET = "83939c7f16777ec5809469ffdeae8597ffa31fe9";
+const CLIENT_ID = "";
+const CLIENT_SECRET = "";
 
 const app = express();
 app.use(cors());
