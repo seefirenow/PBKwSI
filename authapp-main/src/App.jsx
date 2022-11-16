@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import github from "../src/img/github.svg";
+
 import "./App.css";
 
 const CLIENT_ID = "";
@@ -7,7 +9,6 @@ function App() {
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    // blablabla.bla/?code=FAUE2443fhDHFUdsfd99433
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const codeParam = urlParams.get("code");
@@ -61,23 +62,32 @@ function App() {
     <div className="App">
       {localStorage.getItem("accessToken") ? (
         <>
-          <h1>Jesteś zalogowany!</h1>
-          <h4>Aby wyświetlić dane z GitHub API  <button onClick={getUserData}>Wyświetl dane dane</button></h4>
+          <h1>Logowanie poprawne</h1>
+          <h4>Aby wyświetlić dane z GitHub API </h4>
           <button onClick={getUserData}>Wyświetl dane dane</button>
           <br />
+
           {Object.keys(userData).length !== 0 ? (
             <>
-              <h4>Witaj {userData.login}</h4>
+              <h4>Witaj {userData.name}</h4>
               <img
                 src={userData.avatar_url}
-                style={{ width: "200px", height: "200px" }}></img>
+                style={{ width: "200px", height: "200px" }}
+              ></img>
+              <h4>Login: {userData.login}</h4>
               <br />
-              <a
-                href={userData.html_url}
-                style={{ color: "white" }}
-                target="_blank">
-                Profil GitHub
-              </a>
+              <h4>Liczba publicznych repozytoriów: {userData.public_repos}</h4>
+              <br />
+              <button>
+                <a
+                  href={userData.html_url}
+                  style={{ color: "white" }}
+                  target="_blank"
+                >
+                  Profil GitHub
+                </a>
+              </button>
+              <br />
             </>
           ) : (
             <></>
@@ -87,14 +97,34 @@ function App() {
             onClick={() => {
               localStorage.removeItem("accessToken");
               setRerender(!rerender);
-            }}>
+            }}
+          >
             Wyloguj!
           </button>
         </>
       ) : (
         <>
-          <h3>Nie jesteś zalogowany! :(</h3>
-          <button onClick={loginWithGitHub}>Zaloguj</button>
+          <div className="login">
+            <div className="lContainer">
+              <input
+                type="text"
+                placeholder="username"
+                id="username"
+                className="lInput"
+              />
+              <input
+                type="password"
+                placeholder="password"
+                id="password"
+                className="lInput"
+              />
+              <button className="lButton">Login</button>
+              <btton onClick={loginWithGitHub} className="Button">
+                Zaloguj się przez
+                <img src={github} alt="GitHub Logo" />
+              </btton>
+            </div>
+          </div>
         </>
       )}
     </div>

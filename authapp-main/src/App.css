@@ -37,5 +37,56 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: rgb(196, 204, 213);
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lInput {
+  height: 30px;
+  padding: 10px;
+}
+
+.lButton {
+  border: none;
+  padding: 10px 20px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.Button {
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lButton:disabled {
+  background-color: #0071c28c;
+  cursor: not-allowed;
+}
+
+.Button:hover {
+  background-color: rgb(134, 121, 155);
+  color: #fff;
+}
+
+.Button:disabled {
+  background-color: #5a5b5d8c;
+  cursor: not-allowed;
 }
